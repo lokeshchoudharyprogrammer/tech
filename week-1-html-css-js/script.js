@@ -176,4 +176,5 @@ flightAdsImg.style.width = "100%";
 flightAds.style.marginTop = "50px";
 
 
+
 flightAds.style.marginBottom = "50px";
