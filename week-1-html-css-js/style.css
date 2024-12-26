@@ -1,0 +1,125 @@
+/* 
+3 ways to write css 
+
+
+inline 
+internal
+external
+
+
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header{
+    display: flex;
+    gap: 23px;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+
+}
+.search{
+    padding: 12px 250px 12px 12px;
+    border: 1px solid black;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.login-button{
+    padding: 12px 15px 12px 15px;
+    border: none;
+    border-radius: 8px;
+}
+
+.login-button:hover{
+    background-color: rgb(27, 27, 180)  ;
+    color: white;
+}
+
+.cart{
+
+    text-decoration: none;
+    color: black;
+    padding: 12px 15px 12px 15px;
+    /* border: 1px solid black; */
+    border-radius: 8px;
+}
+
+.sell{
+    padding: 12px 15px 12px 15px;
+    border: 1px solid black;
+    border-radius: 8px;
+    
+}
+.sell-box{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+   
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px;
+    background-color: #ffffff;
+    justify-content: center;
+    width: 89%;
+    margin: auto;
+    border: 1px solid #ddd;
+    margin-top: 22px;
+}
+
+.menu > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:80px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.menu > div:hover {
+    transform: scale(1.05);
+}
+
+.menu img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.menu div div {
+    font-size: 14px;
+    color: #333;
+}
