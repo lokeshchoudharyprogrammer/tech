@@ -1,6 +1,6 @@
 
 /**
- * today learning journey 
+ * Today learning journey 
  * 0. Ninja Code Philosophy
  * 1. comments
  * 2. code documentation
