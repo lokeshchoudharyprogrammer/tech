@@ -30,7 +30,7 @@
 
 
 /**
- * use always ?? operator  
+ * use always ?? operator 
  */
 
 /**
@@ -76,7 +76,8 @@
  * @example 
  * fullName("John", "Doe"); // "John Doe"
  *  
-*/
+*/ 
+
 
 function fullName(firstName, lastName) {
     return firstName + " " + lastName;
