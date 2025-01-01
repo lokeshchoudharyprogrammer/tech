@@ -1,13 +1,15 @@
 const OpenAI = require('openai');
-
+const { GoogleGenerativeAI } =require('@google/generative-ai')
 const cors = require('cors');
 const express = require('express');
 require('dotenv').config()
+
 const app = express();
 const port = 4000;
 
 app.use(express.json());
 app.use(cors());
+console.log(process.env.XAI_API)
 
 const aiContentGenerator = async (UserPrompt) => {
     const openai = new OpenAI({
@@ -20,11 +22,12 @@ const aiContentGenerator = async (UserPrompt) => {
             model: "grok-2-latest",
             messages: [
                 {
-                    role: "system", content: "You are Grok, a chatbot. I will give you a todo, and you must expand it into 10 words or less in correct English and meaningful sentence. Ensure you do not exceed 14 words."
+                    role: "system",
+                    content: "You are Grok, a chatbot. I will give you a todo, and you must expand it into a meaningful sentence in 10 words or less. Provide three unique suggestions for each input.",
                 },
                 {
                     role: "user",
-                    content: UserPrompt,
+                    content: UserPrompt, // Replace with the actual user prompt variable or string.
                 },
             ],
         });
@@ -35,7 +38,7 @@ const aiContentGenerator = async (UserPrompt) => {
     }
 };
 
-app.post('/', async (req, res) => {
+app.post('/todo', async (req, res) => {
    
     const UserPrompt=req.body.prompt
     try {

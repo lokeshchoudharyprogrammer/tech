@@ -2,7 +2,7 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  
+  background: #f1f5f8;
   height: 100vh;
 }
 
@@ -10,14 +10,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
+  /* width: 90%; */
   align-items: center;
   
   margin: auto;
 }
 
 .todo-container {
-  background: #ffffff; /* Slightly lighter dark background */
+  background: #f1f5f8; /* Slightly lighter dark background */
   border-radius: 12px;
   padding: 20px;
   width: 80%;
@@ -38,7 +38,8 @@ body {
 }
 
 .todo-input-section {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 500px;
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
@@ -54,12 +55,13 @@ body {
 .todo-input {
   flex: 1;
   padding: 10px;
-  border: 1px solid #333;
-  border-radius: 8px;
+  border: 3px solid #a1c99e;
+  border-radius: 21px;
   outline: none;
   font-size: 1rem;
   background: #eeecec; /* Input field background */
   color: #000000;
+  width: 100%;
 }
 
 .todo-input::placeholder {
@@ -67,10 +69,10 @@ body {
 }
 
 .todo-add-btn {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  background: #4caf50; /* Green button */
+  padding: 15px 20px;
+    border: none;
+    border-radius: 26px;
+    background: #4caf50; /* Green button */
   color: #fff;
   font-weight: bold;
   cursor: pointer;
@@ -93,7 +95,7 @@ body {
 .todo-item {
   display: flex;
   align-items: center;
-  background: #f5f3f3; /* Darker background for items */
+  /* Darker background for items */
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 8px;
@@ -313,4 +315,65 @@ strong {
     transform: scale(0.75);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
+}
+
+
+
+/* From Uiverse.io by mi-series */ 
+.chat-button{
+  width: 150px;
+  padding: 0;
+  border: none;
+  transform: rotate(5deg);
+  transform-origin: center;
+  font-family: "Gochi Hand", cursive;
+  text-decoration: none;
+  font-size: 15px;
+  cursor: pointer;
+  padding-bottom: 3px;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 #494a4b;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: #5cdb95;
+}
+
+.chat-button span {
+  background: #f1f5f8;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 2px solid #494a4b;
+}
+
+.chat-button:active {
+  transform: translateY(5px);
+  padding-bottom: 0px;
+  outline: 0;
+}
+
+
+
+
+
+.aiSuggestions{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f1f5f8;
+  flex-wrap: wrap;
+  gap:10px
+}
+
+
+.aiSuggestionsText{
+  border:3px solid #86c4ad;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }

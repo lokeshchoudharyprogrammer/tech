@@ -2,18 +2,6 @@ import React from 'react';
 // import './Todo.css'; // Assuming custom styles or frameworks like TailwindCSS are applied
 import aiImage from '../assets/ai.png';
 
-const navLinkStyle = {
-  color: '#fff',
-  textDecoration: 'none',
-  fontSize: '18px',
-  fontWeight: '600',
-  transition: 'color 0.3s ease',
-  cursor: 'pointer',
-};
-
-const navLinkHoverStyle = {
-  color: '#4A90E2', // Smooth blue color on hover
-};
 
 export const Todo = () => {
   const [todoList, setTodoList] = React.useState([]);
@@ -25,7 +13,7 @@ export const Todo = () => {
       return;
     }
 
-    const todo = { id: todoList.length + 1, title: newTodo, isCompleted: false };
+    const todo = { id: todoList.length + 1, title: newTodo.replace(/[1-4.]/g, ""), isCompleted: false };
     setTodoList([...todoList, todo]);
     setNewTodo('');
   };
@@ -43,7 +31,7 @@ export const Todo = () => {
 
   const handleAIContent = () => {
     // alert(newTodo)
-    fetch(`http://localhost:4000`, {
+    fetch(`http://localhost:4000/todo`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -52,57 +40,42 @@ export const Todo = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data.aiContent);
+        console.log(data.aiContent.split("\n"));
         setNewTodo(data.aiContent);
       })
       .catch(error => {
         console.error("Error fetching AI content:", error);
       });
   };
-
+  console.log(newTodo.split("\n").length)
+  let newTodoList = [
+    "1. Develop a functional API for seamless data integration.",
+    "2. Build a robust API to enhance application connectivity.",
+    "3. Design an API to streamline data exchange efficiently."
+  ]
   return (
     <>
-      <div style={styles.pageContainer}>
-        <div style={styles.navbar}>
-          <div style={styles.logoContainer}>
-            <img
-              src={aiImage}
-              alt="AI Logo"
-              style={styles.logo}
-            />
-          </div>
-
-          <div style={styles.appTitleContainer}>
-            <p style={styles.appTitle}>AI Todo App</p>
-          </div>
-
-
+      <div style={styles.navbar}>
+        <div style={styles.logoContainer}>
+          <img
+            src={aiImage}
+            alt="AI Logo"
+            style={styles.logo}
+          />
         </div>
 
-        <div style={styles.container}>
-          <h2 style={styles.heading}>Welcome to AI Todo App</h2>
-          <p style={styles.paragraph}>
-            The AI Todo App is designed to help you organize and enhance your daily tasks in a smarter way with the help of artificial intelligence.
-            Instead of just entering basic to-dos, the app generates meaningful and relevant task suggestions based on your input, making your to-do list more productive and tailored to your needs.
-          </p>
-
-          <h3 style={styles.subheading}>How It Works:</h3>
-          <ol style={styles.list}>
-            <li style={styles.listItem}>Type a task in the input box.</li>
-            <li style={styles.listItem}>Click "Get AI Suggestion" to get a smart suggestion.</li>
-            <li style={styles.listItem}>Stay organized with a meaningful to-do list.</li>
-          </ol>
-
-
+        <div style={styles.appTitleContainer}>
+          <p style={styles.appTitle}>AI Todo App</p>
         </div>
       </div>
 
       <div className='container'>
         <div className="todo-input-section">
+
           <input
             type="text"
             placeholder="Enter your task"
-            value={newTodo}
+            value={newTodo.replace(/[1-4.]/g, "")}
             onChange={(e) => setNewTodo(e.target.value)}
             className="todo-input"
           />
@@ -121,6 +94,20 @@ export const Todo = () => {
             Add Task
           </button>
         </div>
+
+       {newTodo.split("\n").length > 1 && <div>
+          <h2 style={styles.heading}>Click on Suggestions and get Use :</h2>
+          <div className="aiSuggestions">
+            {newTodo.split("\n").map((todo, index) => (
+              <p onClick={() => setNewTodo(todo)} className="aiSuggestionsText" key={index} style={styles.listItem}>{todo.replace(/[1-4.]/g, "")}</p>
+            ))}
+          </div>
+
+        </div>}
+
+
+
+
         <div className="todo-container">
 
 
@@ -145,6 +132,8 @@ export const Todo = () => {
     </>
   );
 };
+
+
 const styles = {
   pageContainer: {
     fontFamily: 'Arial, sans-serif',
@@ -183,7 +172,6 @@ const styles = {
     fontWeight: '700',
     color: '#fff',
     margin: 0,
-    textTransform: 'uppercase',
   },
   navLinks: {
     display: 'flex',

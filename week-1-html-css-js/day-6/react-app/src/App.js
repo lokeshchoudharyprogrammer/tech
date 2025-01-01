@@ -1,15 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import { Todo } from './Pages/Todo';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HomePage } from './layout/HomePage';
 
 function App() {
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Todo/>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/todo" element={<Todo />} />
+      <Route path="/" element={<HomePage />} />
+    </Routes>
+
   );
 }
 
