@@ -31,7 +31,7 @@ export const Todo = () => {
 
   const handleAIContent = () => {
     // alert(newTodo)
-    fetch(`http://localhost:4000/todo`, {
+    fetch(`https://day-7-server.onrender.com/todo`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -47,12 +47,7 @@ export const Todo = () => {
         console.error("Error fetching AI content:", error);
       });
   };
-  console.log(newTodo.split("\n").length)
-  let newTodoList = [
-    "1. Develop a functional API for seamless data integration.",
-    "2. Build a robust API to enhance application connectivity.",
-    "3. Design an API to streamline data exchange efficiently."
-  ]
+
   return (
     <>
       <div style={styles.navbar}>
@@ -68,7 +63,19 @@ export const Todo = () => {
           <p style={styles.appTitle}>AI Todo App</p>
         </div>
       </div>
-
+      <p style={{
+        textAlign: "center",
+        border: "1px solid black",
+        color: "white",
+        backgroundColor: "black",
+        width: "fit-content",
+        display: "flex",
+        margin: "auto",
+        marginTop: "20px",
+        padding: "15px",
+        borderRadius: "50px",
+        opacity: "0.8"
+      }}>API Request slow please wait for 20Sec</p>
       <div className='container'>
         <div className="todo-input-section">
 
@@ -80,14 +87,14 @@ export const Todo = () => {
             className="todo-input"
           />
           {newTodo.length > 0 && <button onClick={handleAIContent} type="button" class="btn">
-            <strong></strong>
+            <strong>AI</strong>
             <div id="container-stars">
               <div id="stars"></div>
             </div>
 
             <div id="glow">
               <div class="circle"></div>
-              <div class="circle"></div>
+              <div class="circle">=</div>
             </div>
           </button>}
           <button onClick={handleAddTodo} className="todo-add-btn">
@@ -95,7 +102,7 @@ export const Todo = () => {
           </button>
         </div>
 
-       {newTodo.split("\n").length > 1 && <div>
+        {newTodo.split("\n").length > 1 && <div>
           <h2 style={styles.heading}>Click on Suggestions and get Use :</h2>
           <div className="aiSuggestions">
             {newTodo.split("\n").map((todo, index) => (
