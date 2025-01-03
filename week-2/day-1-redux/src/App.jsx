@@ -11,6 +11,8 @@ function App() {
     return state.counterReducer.value;
   })
 
+  console.log("A") 
+
   const dispatch = useDispatch()
   const HandleIncrement = () => {
 
