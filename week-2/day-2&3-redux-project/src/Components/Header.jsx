@@ -4,11 +4,11 @@ export const Header = () => {
     return (
         <div className='header'>
             <div>
-                <p className='logo-name'>Flypipe Shop</p>
+                <p onClick={() => { window.location.href = '/' }} className='logo-name'>Flypipe Shop</p>
             </div>
             <div className='header-links'>
-                <p>Home</p>
-                <p>Products</p>
+                <p onClick={() => { window.location.href = '/' }}>Home</p>
+                <p onClick={() => { window.location.href = '/product' }}>Products</p>
                 <p>About</p>
                 <p>Contact</p>
                 <div>
