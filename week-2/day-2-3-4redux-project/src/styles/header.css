@@ -105,6 +105,26 @@
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
 }
+@media screen and (max-width: 600px) {
+    .categories-section{
+      display: none;
+    }
+    .shop-now{
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-links{
+        display: none;
+    }
+    
+}
+
+@media screen and (max-width: 900px) {
+    .categories-section{
+      display: none;
+    }
+    
+}
 
 .category{
     font-family: monospace;
@@ -174,6 +194,7 @@ button {
     text-transform: uppercase;
     font-size: 15px;
     transition: all 0.5s ease;
+    border: 1px solid #d8d8d7;
   }
   
   button:hover {

@@ -5,19 +5,19 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async (item, { rejectWithValue }) => {
     try {
-      const { page = 1, categories = '' } = item; 
-      console.log('Page:', page, 'Categories:', categories); 
+      const { page = 1, categories = '' } = item;
+      console.log('Page:', page, 'Categories:', categories);
 
       // Base requests
       const request1 = fetch('https://fakestoreapi.in/api/products');
-      
+
       // Construct URL for request2
       let request2url = `https://fakestoreapi.in/api/products?page=${page}&limit=9`;
 
       if (categories && page) {
         request2url = `https://fakestoreapi.in/api/products/category?page=${page}&limit=9&type=${categories}`;
-      }     
-      
+      }
+
       const request2 = fetch(request2url);
 
       // Execute both requests concurrently
@@ -56,3 +56,18 @@ export const fetchCategories = createAsyncThunk(
     }
   }
 );
+
+
+export const SingleProduct = createAsyncThunk('product/fetchSingleProduct', async (id, { rejectWithValue }) => {
+  try {
+    const response = await fetch(`https://fakestoreapi.in/api/products/${id}`)
+
+    if (!response.ok) {
+      throw new Error('Failed to fetch product')
+    }
+    return await response.json()
+  } catch (error) {
+    return rejectWithValue(error.message)
+  }
+
+})

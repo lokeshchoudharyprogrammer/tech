@@ -1,24 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Card = ({ product,index }) => {
+const Card = ({ product, index }) => {
     return (
         <div key={index} className="product-card" style={styles.card}>
-            <img
-                src={product.image}
-                alt={product.title}
-                style={styles.image} 
-            />
-            <div style={styles.content}>
-                <h2 style={styles.title}>{product.title.slice(0, 20)}</h2>
-                <p style={styles.description}>{product.description.substring(0, 50)}...</p>
-                
-                <div style={styles.footer}>
-                    <span style={styles.price}>${product.price}</span>
-                    {product.discount > 0 && (
-                        <span style={styles.discount}>-{product.discount}%</span>
-                    )}
+            <Link to={`/product/${product.id}`}>
+                <img
+                    src={product.image}
+                    alt={product.title}
+                    style={styles.image}
+                />
+            </Link>
+                <div style={styles.content}>
+                    <h2 style={styles.title}>{product.title.slice(0, 20)}</h2>
+                    <p style={styles.description}>{product.description.substring(0, 50)}...</p>
+
+                    <div style={styles.footer}>
+                        <span style={styles.price}>${product.price}</span>
+                        {product.discount > 0 && (
+                            <span style={styles.discount}>-{product.discount}%</span>
+                        )}
+                    </div>
                 </div>
-            </div>
+           
         </div>
     );
 };

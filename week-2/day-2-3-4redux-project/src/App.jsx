@@ -6,6 +6,7 @@ import { Home } from './Pages/Home'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProductListing } from './Pages/ProductListing'
 import { Header } from './Components/Header'
+import Singleproduct from './Components/Singleproduct'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product" element={ <ProductListing />} />
+        <Route path="/product/:id" element={ <Singleproduct />} />
       </Routes>
     </>
   )
