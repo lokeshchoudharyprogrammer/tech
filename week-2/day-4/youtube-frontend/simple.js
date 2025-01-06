@@ -1,0 +1,1 @@
+{"cells":[{"kind":2,"language":"javascript","value":"let a=0;\r\nconsole.log(a)","index":0}]}
