@@ -245,7 +245,8 @@ function App() {
                     <div>
                       <p className='text-3xl font-bold'>₹23030.10</p>
                     </div>
-                    <div>
+                    <div> 
+                    
                       <a className="underline decoration-white">
                         <p className=" flex items-center font-medium text-white">
                           23 Orders
