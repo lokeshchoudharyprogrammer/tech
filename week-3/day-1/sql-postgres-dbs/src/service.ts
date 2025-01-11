@@ -6,7 +6,9 @@ export async function getClient() {
     return client;
 }
 
-// postgresql://testApplication_owner:j7ZbdKWnSO2q@ep-billowing-moon-a50q1b1l.us-east-2.aws.neon.tech/testApplication?sslmode=require
+
+
+
 
 // this is password =>j7ZbdKWnSO2q
 // this is username => testApplication_owner
