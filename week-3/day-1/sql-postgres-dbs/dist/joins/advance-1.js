@@ -9,14 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const service_1 = require("./service");
-const InsertData = () => __awaiter(void 0, void 0, void 0, function* () {
-    const client = yield (0, service_1.getClient)();
-    const insertUserText = 'INSERT INTO TodoUsers (email,password) VALUES ($1 ,$2) RETURNING id';
-    const userData = ['johndSoe.gmail.com', 'password123'];
-    let res = yield client.query(insertUserText, userData);
-    const todoText = 'INSERT INTO todo (title,des,user_id,done) VALUES ($1,$2,$3,$4) RETURNING id';
-    yield client.query(todoText, ['Buy groceries', 'Milk,bread, and eggs', res.rows[0].id, false]);
-    console.log("Entries created!");
-});
-InsertData();
+const service_1 = require("../service");
+// getClient
+function getUserAndUserTodosJoin(userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const client = yield (0, service_1.getClient)();
+        const joinQuery = `
+    SELECT todousers.* , todo.*
+    FROM todousers
+    LEFT JOIN todo ON todousers.id = todo.user_id
+    WHERE todousers.id = $1
+    `;
+        const res = yield client.query(joinQuery, [userId]);
+        console.log(res.rows);
+    });
+}
+getUserAndUserTodosJoin(1);

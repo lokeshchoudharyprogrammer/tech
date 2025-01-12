@@ -10,13 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const service_1 = require("./service");
-const InsertData = () => __awaiter(void 0, void 0, void 0, function* () {
-    const client = yield (0, service_1.getClient)();
-    const insertUserText = 'INSERT INTO TodoUsers (email,password) VALUES ($1 ,$2) RETURNING id';
-    const userData = ['johndSoe.gmail.com', 'password123'];
-    let res = yield client.query(insertUserText, userData);
-    const todoText = 'INSERT INTO todo (title,des,user_id,done) VALUES ($1,$2,$3,$4) RETURNING id';
-    yield client.query(todoText, ['Buy groceries', 'Milk,bread, and eggs', res.rows[0].id, false]);
-    console.log("Entries created!");
-});
-InsertData();
+// getClient
+function deleteTodo(id) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const client = yield (0, service_1.getClient)();
+        const deleteQuery = 'DELETE FROM todo WHERE id=$1 RETURNING id';
+        const res = client.query(deleteQuery, [id]);
+        console.log(res);
+        console.log("Entries deleted!");
+    });
+}
+deleteTodo(1);

@@ -10,13 +10,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const service_1 = require("./service");
-const InsertData = () => __awaiter(void 0, void 0, void 0, function* () {
-    const client = yield (0, service_1.getClient)();
-    const insertUserText = 'INSERT INTO TodoUsers (email,password) VALUES ($1 ,$2) RETURNING id';
-    const userData = ['johndSoe.gmail.com', 'password123'];
-    let res = yield client.query(insertUserText, userData);
-    const todoText = 'INSERT INTO todo (title,des,user_id,done) VALUES ($1,$2,$3,$4) RETURNING id';
-    yield client.query(todoText, ['Buy groceries', 'Milk,bread, and eggs', res.rows[0].id, false]);
-    console.log("Entries created!");
-});
-InsertData();
+// getClient
+function UpdateTodo(id, done) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const client = yield (0, service_1.getClient)();
+        const updateTodoText = 'UPDATE todo SET done=$1 WHERE id=$2 RETURNING id';
+        const res = yield client.query(updateTodoText, [done, id]);
+        return res.rows[0].id;
+    });
+}
+console.log(UpdateTodo(2, false));

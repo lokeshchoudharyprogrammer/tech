@@ -13,13 +13,12 @@ exports.getClient = getClient;
 const pg_1 = require("pg");
 function getClient() {
     return __awaiter(this, void 0, void 0, function* () {
-        const client = new pg_1.Client("postgresql://testApplication_owner:j7ZbdKWnSO2q@ep-billowing-moon-a50q1b1l.us-east-2.aws.neon.tech/testApplication?sslmode=require");
+        const client = new pg_1.Client('postgresql://testApplication_owner:j7ZbdKWnSO2q@ep-billowing-moon-a50q1b1l.us-east-2.aws.neon.tech/testApplication?sslmode=require');
         yield client.connect();
         return client;
     });
 }
-// postgresql://testApplication_owner:j7ZbdKWnSO2q@ep-billowing-moon-a50q1b1l.us-east-2.aws.neon.tech/testApplication?sslmode=require
-// this is password =>j7ZbdKWnSO2q
+// this is password =>j7ZbdKWnSO2q 
 // this is username => testApplication_owner
 // this is endpoint => ep-billowing-moon-a50q1b1l.us-east-2.aws.neon.tech
 // this is database => testApplication

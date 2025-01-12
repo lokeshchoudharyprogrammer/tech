@@ -6,7 +6,7 @@ const InsertData=async()=>{
 
     const insertUserText='INSERT INTO TodoUsers (email,password) VALUES ($1 ,$2) RETURNING id';
 
-    const userData=['johndoe.gmail.com','password123'];
+    const userData=['johndSoe.gmail.com','password123'];
 
     let res=await client.query(insertUserText,userData);
 

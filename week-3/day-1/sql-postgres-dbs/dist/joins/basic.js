@@ -9,14 +9,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const service_1 = require("./service");
-const InsertData = () => __awaiter(void 0, void 0, void 0, function* () {
-    const client = yield (0, service_1.getClient)();
-    const insertUserText = 'INSERT INTO TodoUsers (email,password) VALUES ($1 ,$2) RETURNING id';
-    const userData = ['johndSoe.gmail.com', 'password123'];
-    let res = yield client.query(insertUserText, userData);
-    const todoText = 'INSERT INTO todo (title,des,user_id,done) VALUES ($1,$2,$3,$4) RETURNING id';
-    yield client.query(todoText, ['Buy groceries', 'Milk,bread, and eggs', res.rows[0].id, false]);
-    console.log("Entries created!");
-});
-InsertData();
+const service_1 = require("../service");
+function getUserAndUserTodos(userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const client = yield (0, service_1.getClient)();
+        const userQuery = 'SELECT * FROM todousers WHERE id=$1';
+        const res = yield client.query(userQuery, [userId]);
+        const user = res.rows[0];
+        console.log(user);
+        const todoQuery = 'SELECT * FROM todo WHERE user_id=$1';
+        const res2 = yield client.query(todoQuery, [userId]);
+        const todos = res2.rows;
+        console.log(todos);
+    });
+}
+getUserAndUserTodos(7);
