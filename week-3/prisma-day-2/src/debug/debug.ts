@@ -30,3 +30,6 @@ main()
 prisma.$on("query", async (e) => {
     console.log(`${e.query} ${e.params}`)
 });
+
+
+// dub.sh https://www.dub.sh/
