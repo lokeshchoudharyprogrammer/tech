@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch src/get-users.ts"
+    "dev": "tsx watch src/update-user.ts"
   },
   "keywords": [],
   "author": "",

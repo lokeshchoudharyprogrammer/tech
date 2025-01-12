@@ -6,16 +6,16 @@ const prisma =new PrismaClient();
 
 async function main(){
 
-    const user =await prisma.user.findMany({});
-    console.log(user);
 
-    const user2=await prisma.user.findUnique({
+    const user2=await prisma.user.update({
         where:{
             id:1
         },
-        include:{
-            post:true
-        },
+        data:{
+
+            name:"Lokesh cz",
+            email:"lokesh@cz.com",
+        }
     });
 
     console.log(user2);
