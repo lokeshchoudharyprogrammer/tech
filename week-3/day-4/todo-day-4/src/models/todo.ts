@@ -41,5 +41,28 @@ export const getTodos = async (author_id: number) => {
 }
 
 
+export const UpdateTodo=async(id:number,title:string,content:string,author_id:number)=>{
+    try {
+        await prisma.todo.update({
+            where:{id:id},
+            data:{title:title,content:content,author_id:author_id}
+        })
+        return TodoMessage.TODO_UPDATED
+    } catch (error) {
+        return TodoMessage.INTERNAL_ERROR;
+    }
+}
+
+export const DeleteTodo=async(id:number)=>{
+    try {
+        await prisma.todo.delete({
+            where:{id:id}
+        })
+        return TodoMessage.TODO_DELETED
+    } catch (error) {
+        return TodoMessage.INTERNAL_ERROR;
+    }
+}
+
 
 export default { createTodo, getTodos }
