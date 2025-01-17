@@ -23,6 +23,8 @@ function authMiddleware(c:any,next:any) {
   
 }
 
+app.get('/', (c) => c.text('Hello World'))
+
 app.post('/', async (c) => {
   const client = await connectionToDB();
  const createAddress=`
