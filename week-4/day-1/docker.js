@@ -12,4 +12,6 @@
  * docker logs <id>
  * docker exec -it <id> bash
  * docker build -t <name> .
+ * 
+ * https://projects.100xdevs.com/tracks/docker-easy/docker-6
  */
