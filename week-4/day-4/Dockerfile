@@ -13,9 +13,11 @@ RUN npx prisma generate
 # Copy the rest of the application files
 COPY . .
 
-# Expose the application port
-EXPOSE 3000
+# Build the application (if using TypeScript or a build step)
+RUN npm run build
 
-CMD npm start
+# Expose the application port
+EXPOSE 3005
+
 # Start the application
-CMD ["npm", "start"]
+CMD ["node", "dist/index.js"]
