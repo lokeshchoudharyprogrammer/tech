@@ -1,0 +1,64 @@
+services:
+  frontend:
+      build:
+        context: ./frontend
+        dockerfile: Dockerfile  # Optional if Dockerfile is in the root of ./frontend
+      ports:
+        - "3000:3000"
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://testApplication_owner:j7ZbdKWnSO2q@ep-billowing-moon-a50q1b1l-pooler.us-east-2.aws.neon.tech/testApplication?sslmode=require
+    depends_on:
+      - db
+    command: sh -c "npx prisma migrate deploy && npm run dev"
+
+  db:
+    image: postgres
+    container_name: postgres-db
+    ports:
+      - "6000:6000"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: testApplication
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
+
+x-dockerfile:
+  frontend: |
+    FROM node:16
+    WORKDIR /app
+    COPY package*.json ./  # Copy package.json and package-lock.json
+    RUN npm install        # Install dependencies
+    COPY . .               # Copy all frontend files
+    EXPOSE 3000            # Expose frontend port
+    CMD ["npm", "start"]   # Command to start the frontend server
+
+  backend: |
+    FROM node:16
+    WORKDIR /app
+
+    # Copy package files and install dependencies
+    COPY package*.json ./  # Copy package.json and package-lock.json
+    RUN npm install        # Install backend dependencies
+
+    # Copy Prisma schema and other backend files
+    COPY . .
+
+    # Generate Prisma Client
+    RUN npx prisma generate
+
+    # Expose the backend port
+    EXPOSE 5000            # Expose backend port
+
+    # Command to run migrations and start the server
+    CMD ["sh", "-c", "npx prisma migrate deploy && npm run dev"]
