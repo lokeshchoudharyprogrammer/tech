@@ -3,12 +3,45 @@ import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { decode, sign, verify } from 'hono/jwt'
 
+
+// @ts-ignore
+type Variable={
+  DATABASE_URL:string,
+  JWT_SECRET:string
+  message:string
+}
+
 const app = new Hono<{
   Bindings:{
     DATABASE_URL:string,
     JWT_SECRET:string
   }
+  Variable:Variable
 }>()
+
+
+app.use("*", async(c) => {
+  // @ts-ignore
+	const prisma = new PrismaClient({
+      datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
+  c.set("prisma", prisma);
+})
+
+app.use('/api/v1/blog/*', async (c, next) => {
+  // @ts-ignore
+  const header=c.req.headers.get('authorization')
+  if(header){
+    const token=header.split(' ')[1]
+    // @ts-ignore
+    const decodedToken=await decode(token,c.env.JWT_SECRET)
+    if(decodedToken){
+      // @ts-ignore
+      c.set('user',decodedToken)
+      await next()
+    }
+  }
+})
 
 app.get('/', async(c) => {
   
