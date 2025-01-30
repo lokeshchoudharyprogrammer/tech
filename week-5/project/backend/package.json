@@ -8,6 +8,8 @@
     "@prisma/client": "^6.3.0",
     "@prisma/extension-accelerate": "^1.2.1",
     "hono": "^4.6.19",
+    "medium-common-zod-1": "^2.0.0",
+    "medium-common-zods": "^1.0.0",
     "prisma": "^6.3.0"
   },
   "devDependencies": {
