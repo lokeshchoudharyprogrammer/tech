@@ -20,6 +20,8 @@ node_modules/
 .env.production
 .dev.vars
 .wrangler.toml
+wrangler.toml
+./wrangler.toml
 # logs
 logs/
 *.log
