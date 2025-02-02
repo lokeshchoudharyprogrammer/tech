@@ -15,7 +15,6 @@ function SignIn() {
 
   const handleSubmit = () => {
     async function sendRequest(){
-        console.log("object")
         try {
           const res=await fetch(`${BACKEND_URL}/api/v1/user/signin   `,{
             method:"POST",
@@ -25,7 +24,6 @@ function SignIn() {
             body:JSON.stringify(postInput)
     
           }).then(res=>res.json()).then((res)=>{
-            console.log(res.jwt)
             localStorage.setItem("token",res.jwt)
             nav("/blog")
           })

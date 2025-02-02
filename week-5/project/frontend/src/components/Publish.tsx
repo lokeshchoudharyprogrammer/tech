@@ -9,7 +9,6 @@ export const Publish = () => {
     const [title, setTitle] = useState('')
     const nav=useNavigate()
     async function CreatePost() {
-        console.log(story)
         try {
             const res = await fetch(`${BACKEND_URL}/api/v1/blog`, {
                 method: "POST",

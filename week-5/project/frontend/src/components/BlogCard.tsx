@@ -14,7 +14,7 @@ function BlogCard({time,value,author, title, content }) {
     }
     setReadTime(calculateReadTime(content));
   }, [content]);
-  console.log()
+  
 
   return (
     
@@ -24,7 +24,7 @@ function BlogCard({time,value,author, title, content }) {
     }}>
     <div style={styles.card}>
       <div style={styles.header}>
-        <div style={styles.avatar}>{author.charAt(0)}</div>
+        <div style={styles.avatar}>🚀</div>
         {/* @ts-ignore   */}
         <div style={styles.meta}>
           <span style={styles.author}>{author}</span>

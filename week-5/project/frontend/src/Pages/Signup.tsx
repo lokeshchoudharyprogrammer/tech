@@ -25,7 +25,6 @@ function Signup() {
         body:JSON.stringify(postInput)
 
       }).then(res=>res.json()).then((res)=>{
-        console.log(res)
         localStorage.setItem("token",res.token)
         nav("/signin")
       })
@@ -34,7 +33,6 @@ function Signup() {
       
     }
   }
-  console.log(postInput)
 
   return (
     <div style={{
