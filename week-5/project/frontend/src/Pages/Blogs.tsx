@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import BlogCard from '../components/BlogCard.tsx';
 import { BACKEND_URL } from '../service/config.ts';
+import { NavBar } from '../components/NavBar.tsx';
 
 interface Blog {
   id: string;
+  time: string;
   title: string;
   content: string;
   published: string;
@@ -29,20 +31,34 @@ function Blogs() {
     }
     getBlogs()
   }, [])
-  console.log(blogs)
+  if (blogs.length === 0) {
+    return (
+      <>
+        <NavBar OnClick={() => { }} />
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+          <h1>Loading...</h1>
+        </div>
+      </>
+    )
+  }
   return (
-    <div>
-      {
-        blogs.map((blog) => (
-          <BlogCard
-           value={blog.id} 
-          title={blog.title}
-          content={blog.content}
-          />
-        ))
-      }
+    <>
+      <NavBar OnClick={() => { }} />
+      <div>
+        {
+          blogs.reverse().map((blog, index) => (
+            <BlogCard
+              time={blog.time}
+              value={blog.id}
+              author={blog["author"].name}
+              title={blog.title}
+              content={blog.content}
+            />
+          ))
+        }
 
-    </div>
+      </div>
+    </>
   );
 }
 

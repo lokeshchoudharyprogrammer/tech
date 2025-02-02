@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function BlogCard({value, title, content }) {
-  const author = 'Lokesh';
+function BlogCard({time,value,author, title, content }) {
  
-  console.log(value,title,content)
-
+  
   const [readTime, setReadTime] = useState(0);
 
   useEffect(() => {
@@ -16,17 +14,22 @@ function BlogCard({value, title, content }) {
     }
     setReadTime(calculateReadTime(content));
   }, [content]);
+  console.log()
 
   return (
     
-    <Link to={`/blog/${value}`}>
+    <Link to={`/blog/${value}`} style={{
+      color:"black",
+      textDecoration:"none"
+    }}>
     <div style={styles.card}>
       <div style={styles.header}>
         <div style={styles.avatar}>{author.charAt(0)}</div>
+        {/* @ts-ignore   */}
         <div style={styles.meta}>
           <span style={styles.author}>{author}</span>
           <span style={styles.date}>
-            {new Date().toISOString().split("T")[0]}
+            {new Date(time).toLocaleDateString('en-GB')?new Date(time).toLocaleDateString('en-GB'):new Date().toISOString().split("T")[0]}
           </span>
         </div>
       </div>
@@ -39,7 +42,7 @@ function BlogCard({value, title, content }) {
           {content.length > 150 && "..."}
         </p>
       </div>
-  
+   {/* @ts-ignore   */}
       <div style={styles.footer}>
         <span style={styles.readTime}>{readTime} min read</span>
       </div>
@@ -107,6 +110,7 @@ const styles = {
   footer: {
     borderBottom: '2px solid #eee',   
     textAlign: 'left',
+    paddingBottom: '15px',
   },
   readTime: {
     fontSize: '14px',

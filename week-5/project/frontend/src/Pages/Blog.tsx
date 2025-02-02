@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BACKEND_URL } from "../service/config.ts";
+import { NavBar } from "../components/NavBar.tsx";
 
 interface Blog {
   id: string;
+  time: string;
   title: string;
   content: string;
   published: string;
   authorId: string;
+  author: {
+    name: string;
+  };
 }
 
 function Blog() {
   const { id } = useParams();
   const [blog, setBlog] = useState<Blog | null>(null);
-  const author = "Lokesh";
 
   useEffect(() => {
     async function fetchBlog() {
@@ -32,21 +36,45 @@ function Blog() {
     }
     fetchBlog();
   }, [id]);
-
+ {/* @ts-ignore   */}
   if (!blog) return <div style={styles.loading}>Loading...</div>;
 
   return (
-    <div style={styles.container}>
-      <div style={styles.contentWrapper}>
-        <h1 style={styles.title}>{blog.title}</h1>
-        <p style={styles.date}>{new Date(blog.published).toDateString()}</p>
-        <p style={styles.content}>{blog.content}</p>
-      </div>
-      <div style={styles.authorCard}>
-        <div style={styles.avatar}>{author.charAt(0)}</div>
-        <div style={styles.meta}>
-          <span style={styles.author}>{author}</span>
-          <span style={styles.date}>{new Date().toISOString().split("T")[0]}</span>
+    <div>
+
+      <NavBar OnClick={() => {}}  />
+      <div style={styles.container}>
+        <div style={styles.contentWrapper}>
+          <h1 style={styles.title}>{blog.title}</h1>
+          <span style={styles.date}>
+            {new Date(blog.time).toLocaleDateString("en-GB")}
+          </span>
+          <p style={styles.content}>{blog.content}</p>
+        </div>
+
+        {/* ✅ Corrected Author Section */}
+         {/* @ts-ignore   */}
+        <div style={styles.authorCard}>
+          <p style={{ fontWeight: "500", marginBottom: "8px" }}>Author</p>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <div style={styles.avatar}>
+             
+              {blog.author.name?.charAt(0).toUpperCase() || "U"}
+            </div>
+             {/* @ts-ignore   */}
+
+            <div style={styles.meta}>
+               
+              <span style={styles.author}>{blog.author.name || "Unknown Author"}</span>
+              <span style={styles.date}>
+                {new Date(blog.time).toLocaleDateString("en-GB")}
+              </span>
+              <p style={{ marginTop: "8px", fontWeight: "500", textAlign: "center" }}>
+            Creative storyteller & writer.
+          </p>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -75,7 +103,6 @@ const styles = {
   date: {
     fontSize: "14px",
     color: "#888",
-    marginBottom: "20px",
   },
   content: {
     fontSize: "1.1rem",
@@ -83,10 +110,12 @@ const styles = {
     color: "#333",
   },
   authorCard: {
-    display: "flex",
+    
+    flexDirection: "column",
     alignItems: "center",
     padding: "15px",
     borderRadius: "8px",
+    color:"gray"
   },
   avatar: {
     width: "50px",
@@ -111,10 +140,10 @@ const styles = {
     fontSize: "1.2rem",
     marginTop: "50px",
   },
-  meta:{
-    display:"flex",
-    flexDirection:"column"
-  }
+  meta: {
+    display: "flex",
+    flexDirection: "column",
+  },
 };
 
 export default Blog;

@@ -1,14 +1,15 @@
 import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Input from '../components/Input.tsx';
-import { SignupInput } from 'medium-common-zod-1';
+
+// import { SignupInput } from 'medium-common-zod-1';
 import Button from '../components/Button.tsx';
 import { BACKEND_URL } from '../service/config.ts';
 
 function Signup() {
   const nav=useNavigate()
-  const [postInput,setPostInput] = useState<SignupInput>({
-    username: "",
+  const [postInput,setPostInput] = useState({
+    name: "",
     email: "",
     password: ""
   })
@@ -33,10 +34,7 @@ function Signup() {
       
     }
   }
-  const handleSubmit = () => {
-    console.log("sdf")
-    console.log(postInput)
-  }
+  console.log(postInput)
 
   return (
     <div style={{
@@ -65,8 +63,8 @@ function Signup() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: "50%" }}>
          
-          <Input type="text" placeholder="username" name="username" handleChange={(e)=>{
-            setPostInput({...postInput,username:e.target.value})
+          <Input type="text" placeholder="name" name="name" handleChange={(e)=>{
+            setPostInput({...postInput,name:e.target.value})
           }} />
           
           <Input type="email" placeholder="email" name="email" handleChange={(e)=>{

@@ -24,19 +24,21 @@ userRouter.post('/signup', async (c) => {
 	}).$extends(withAccelerate());
 
 	const body = await c.req.json();
-  const {success}=signupInput.safeParse(body)
-  if(!success){
-    c.status(400);
-    return c.json({
-      "message": "Invalid input"
-    })
-  }
+  // const {success}=signupInput.safeParse(body)
+
+  // if(!success){
+  //   c.status(400);
+  //   return c.json({
+  //     "message": "Invalid input"
+  //   })
+  // }
 
 	try {
 		const user = await prisma.user.create({
 			data: {
 				email: body.email,
-				password: body.password
+				password: body.password,
+        name:body.name
 			}
 		});
 	

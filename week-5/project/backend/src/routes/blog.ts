@@ -4,6 +4,7 @@ import { withAccelerate } from '@prisma/extension-accelerate'
 import { decode, sign, verify } from 'hono/jwt'
 import { auth } from 'hono/utils/basic-auth'
 import {createPostInput,updatePostInput} from "medium-common-zod-1"
+
 type Variable = {
   DATABASE_URL: string
   JWT_SECRET: string
@@ -43,7 +44,22 @@ blogRouter.get("/blogs", async (c) => {
         datasourceUrl: c.env?.DATABASE_URL,
       }).$extends(withAccelerate());
   
-      const posts = await prisma.post.findMany();
+      const posts = await prisma.post.findMany({
+        select:{
+          id: true,
+          title: true,
+          content: true,
+          published: true,
+          // @ts-ignore
+          time: true,
+          author:{
+            select:{
+              name: true
+            }
+          }
+
+        }
+      });
    
       return c.json({ posts :posts});
   
@@ -100,7 +116,7 @@ try {
 }
 })
 
-blogRouter.put('', async (c) => {
+blogRouter.put('/:id', async (c) => {
 try {
     const body =await c.req.json()
   const {success}=updatePostInput.safeParse(body)
@@ -146,6 +162,17 @@ blogRouter.get('/:id', async (c) => {
      where: {
        id: id,
      },
+     select:{
+      title: true,
+      content: true,
+      // @ts-ignore
+      time: true,
+      author:{
+        select:{
+          name: true
+        }
+     }
+    }
    })
  
    return c.json({
