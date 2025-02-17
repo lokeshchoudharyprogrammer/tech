@@ -12,6 +12,10 @@ app.get("/",(req:Request,res:Response)=>{
         UserType
     })
 })
+
+// code is deleted I will implement it again 
+
+
 app.listen(12000,()=>{
  
     console.log("server run 12000")
