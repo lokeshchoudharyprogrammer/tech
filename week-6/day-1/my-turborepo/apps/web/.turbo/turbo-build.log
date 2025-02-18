@@ -1,0 +1,12 @@
+[?9001h[?1004h[?25l[2J[m[H]0;npm[?25h]0;npm run build[?25l
+> web@0.1.0 build
+> next build[5;1H[?25h[K]0;C:\WINDOWS\system32\cmd.exe    [38;2;173;127;168m[1m▲ Next.js 15.1.7
+[m
+ [37m[1m [m Creating an optimized production build ...
+uncaughtException [Error: EPERM: operation not permitted, open 'C:\Users\Lokesh Choudhary\Desktop\lokesh\tech\week-6\day-1\my-turborepo\apps\web\.next\trace'] {
+  errno: [33m-4048[m,
+  code: [32m'EPERM'[m,
+  syscall: [32m'open'[m,
+  path: [32m'C:\\Users\\Lokesh Choudhary\\Desktop\\lokesh\\tech\\week-6\\day-1\\my-turborepo\\apps\\web\\.next\\trace'[m
+}
+[?9001l[?1004l

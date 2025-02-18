@@ -1,7 +1,10 @@
 import Image, { type ImageProps } from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
+import {PrismaClient} from "@repo/db/client"
 
+
+const client=new PrismaClient()
 type Props = Omit<ImageProps, "src"> & {
   srcLight: string;
   srcDark: string;
@@ -31,8 +34,8 @@ export default function Home() {
           height={38}
           priority
         />
-        <ol>
-          <li>
+      <ol>
+          <li className=" font-bold size-3 text-red-500 ">
             Get started by editing <code>apps/web/app/page.tsx</code>
           </li>
           <li>Save and see your changes instantly.</li>
@@ -46,7 +49,8 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <Image
-              className={styles.logo}
+              // className={styles.logo}
+              className="text-red-500"
               src="/vercel.svg"
               alt="Vercel logomark"
               width={20}
