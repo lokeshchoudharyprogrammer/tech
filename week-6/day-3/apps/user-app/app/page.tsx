@@ -1,10 +1,12 @@
+"use client"
 import Image, { type ImageProps } from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
-import {PrismaClient} from "@repo/db/client"
+import { useBalance } from '@repo/store/useBalance';
 
 
-const client=new PrismaClient()
+
+// const client=new PrismaClient()
 type Props = Omit<ImageProps, "src"> & {
   srcLight: string;
   srcDark: string;
@@ -22,6 +24,8 @@ const ThemeImage = (props: Props) => {
 };
 
 export default function Home() {
+  const balance = useBalance();
+console.log(balance)
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -35,6 +39,7 @@ export default function Home() {
           priority
         />
       <ol>
+        {balance}
           <li className=" font-bold size-3 text-red-500 ">
             Get started by editing <code>apps/web/app/page.tsx</code>
           </li>
