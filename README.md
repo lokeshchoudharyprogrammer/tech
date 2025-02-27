@@ -1,5 +1,5 @@
 # TECH
-# Working on the portfolio completed 
+# portfolio completed 
 [Portfolio](https://www.lokeshdev.in/)
  
 #  AI Food analytics Android App  
