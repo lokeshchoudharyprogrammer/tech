@@ -1,6 +1,15 @@
 # TECH
 # portfolio completed 
 [Portfolio](https://www.lokeshdev.in/)
+
+
+## Day-65
+#### 💻 Development:  
+#### ✅ Created Privacy Policy for my app. 
+#### ✅ Submitted required documents for Google Play approval. 
+#### ✅ Final submission for review & added 12 testers for testing. 🎉
+
+#Day65 #Development  #PlayStore #AppLaunch #CodingJourney
  
 #  AI Food analytics Android App  
 
