@@ -1,7 +1,7 @@
 # TECH
 # portfolio completed 
 [Portfolio](https://www.lokeshdev.in/)
- Attended a 1-hour Frontend interview with GPT, focusing on UI development.
+#### Attended a 1-hour Frontend interview with GPT, focusing on UI development.
 #  AI Food analytics Android App  Improve ui 
 
 [Expo App](https://expo.dev/accounts/lokesh_choudhary/projects/dev/builds/511977d8-4144-4177-b950-1006b56e777e)
