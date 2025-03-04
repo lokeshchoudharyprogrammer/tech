@@ -2,8 +2,16 @@
 # portfolio completed 
 [Portfolio](https://www.lokeshdev.in/)
 #### Attended a 1-hour Frontend interview with GPT, focusing on UI development.
-#  AI Food analytics Android App  Improve ui added more feature's 
 
+#  AI Food analytics Android App  Improve ui added more feature's 
+# Day-69
+💻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐦𝐞𝐧𝐭:
+
+✔️ Designed App Architecture in ClickUp, mapping the entire flow of how different components will interact.
+
+ ✔️ Mostly completed—finalizing details tomorrow!
+
+🎯 Refining problem-solving skills while structuring my project for scalability!
 [Expo App](https://expo.dev/accounts/lokesh_choudhary/projects/dev/builds/511977d8-4144-4177-b950-1006b56e777e)
   
  
