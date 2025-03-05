@@ -7,7 +7,7 @@
 # Day-69
 💻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐦𝐞𝐧𝐭:
 
-✔️ Designed App Architecture in ClickUp, mapping the entire flow of how different components will interact.
+✔️ Designed App Architecture in ClickUp, mapping the entire flow of how different  components will interact.
 
  ✔️ Mostly completed—finalizing details tomorrow!
 
