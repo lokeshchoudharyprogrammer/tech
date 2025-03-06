@@ -4,7 +4,8 @@
 #### Attended a 1-hour Frontend interview with GPT, focusing on UI development.
 
 #  AI Food analytics Android App  Improve ui added more feature's 
-# Day-69
+# Day-71 Server Scaling 
+
 💻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐦𝐞𝐧𝐭:
 
 ✔️ Designed App Architecture in ClickUp, mapping the entire flow of how different  components will interact.
