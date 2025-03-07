@@ -4,7 +4,8 @@
 #### Attended a 1-hour Frontend interview with GPT, focusing on UI development.
 
 #  AI Food analytics Android App  Improve ui added more feature's 
-# Day-71 Server Scaling 
+# Day-72 Studied API Design Best Practices
+
 
 💻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐦𝐞𝐧𝐭:
 
