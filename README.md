@@ -1,23 +1,5 @@
 # TECH
-# portfolio completed 
 [Portfolio](https://www.lokeshdev.in/)
-#### Attended a 1-hour Frontend interview with GPT, focusing on UI development.
 
-#  AI Food analytics Android App  Improve ui added more feature's 
-# Day-72 Studied API Design Best Practices
-
-
-💻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐦𝐞𝐧𝐭:
-
-✔️ Designed App Architecture in ClickUp, mapping the entire flow of how different  components will interact.
-
- ✔️ Mostly completed—finalizing details tomorrow!
-
-🎯 Refining problem-solving skills while structuring my project for scalability!
-[Expo App](https://expo.dev/accounts/lokesh_choudhary/projects/dev/builds/511977d8-4144-4177-b950-1006b56e777e)
-  
- 
-![WhatsApp Image 2025-02-26 at 8 52 41 PM](https://github.com/user-attachments/assets/33dda5b3-ff9d-460f-b797-862d9445789a)
-![WhatsApp Image 2025-02-26 at 8 52 42 PM](https://github.com/user-attachments/assets/9da60e09-b559-4d65-a478-0d6e6c621857)
-![WhatsApp Image 2025-02-26 at 8 52 43 PM](https://github.com/user-attachments/assets/57ba1d93-4ef9-48f8-8517-445b5d4254c4)
-![WhatsApp Image 2025-02-26 at 8 56 52 PM](https://github.com/user-attachments/assets/e884c545-d401-4499-b801-9fac727e391f)
+# Day-73 Studied 
+Explored WebRTC Theory, covering:
