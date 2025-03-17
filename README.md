@@ -1,7 +1,6 @@
 # TECH
 [Portfolio](https://www.lokeshdev.in/)
 
-# Day-79 Working on Project 
-project repo link : https://github.com/lokeshchoudharyprogrammer/live-docs
- 
+# Day-82 Working on ai agent  
+project repo link : https://github.com/lokeshchoudharyprogrammer/cold-emails-ai
  
