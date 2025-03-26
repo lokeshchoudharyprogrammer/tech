@@ -1,7 +1,7 @@
 # TECH
 [Portfolio](https://www.lokeshdev.in/)
 ### For development i will work only 2 days in week and remain days ML Course
-# Day-90 Deep-dived into JavaScript DOM concepts, revising:
+# Day-91 css revision:
 ### Working on ai agent  and explored langbase docs
 
 
