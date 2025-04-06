@@ -1,7 +1,7 @@
 # TECH
 [Portfolio](https://www.lokeshdev.in/)
 ### For development i will work only 2 days in week and remain days ML Course
-# Day-101 ✅ Create Nowt UI 
+# Day-102 ✅ Create Nowt UI 
 
 𝐋𝐢𝐯𝐞: nowt-ui.vercel.app
 
