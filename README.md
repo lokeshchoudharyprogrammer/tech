@@ -1,7 +1,7 @@
  # TECH
 [Portfolio](https://www.lokeshdev.in/)
 ### For development i will work only 2 days in week and remain days ML Course
-# Day-122 ✅ Revision Of Frontend
+# Day-125 ✅ Revision Of Frontend
 
 𝐋𝐢𝐯𝐞: nowt-ui.vercel.app    
  
